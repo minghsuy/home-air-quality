@@ -67,6 +67,14 @@ A subtle data-quality trap that cost me a wrong conclusion: a low-cost PM2.5 sen
 
 **The reusable move:** before you compute anything on sensor data, learn each channel's resolution and detection floor. A `0` on a coarse sensor is not zero — it's "below my resolution," and arithmetic on it produces confident, meaningless numbers. If indoor precision matters to you, pick a sensor with sub-integer PM2.5 reporting.
 
+## 9. Where a sensor sits decides what it measures — and don't compare across brands
+
+Two placement lessons that saved me from wrong conclusions:
+
+**Placement is a measurement choice, not an afterthought.** A monitor on a wall, away from vents and windows, gives the cleanest picture of *ambient* room air — the right sensor to answer "is this a healthy room to sleep in?" A monitor near the kitchen catches every cooking event — great for *detecting activity*, but useless as your baseline. Same house, same instant, very different numbers, each correct for where it sits. Decide what question a sensor answers before you place it: ambient health (away from sources, at breathing height) or event detection (near the likely source).
+
+**Don't compare absolute index values across different sensor brands.** PM2.5 in µg/m³ is a real physical unit and roughly comparable across decent sensors — but VOC and NOX are usually reported as *proprietary indices*. One brand's "VOC index" and another's 1–500 scale are not the same number and won't line up. Trend each sensor against *itself* over time, and keep any correlations or comparisons within a single sensor's data rather than mixing models. Mixing scales manufactures relationships that aren't there.
+
 ---
 
 ## How to find these in your own data
