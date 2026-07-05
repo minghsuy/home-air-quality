@@ -1,0 +1,13 @@
+# Keeps the two things that can silently rot up to date:
+# - the GitHub Actions this site deploys with (checkout/setup-python/deploy-pages)
+# - the pinned mkdocs-material line (pinned to 9.x in deploy.yml; this surfaces
+#   new releases as PRs so upgrades are deliberate, never silent)
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      actions:
+        patterns: ["*"]
