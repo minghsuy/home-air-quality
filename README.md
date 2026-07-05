@@ -1,5 +1,8 @@
 # Home Air Quality Guide
 
+[![Deploy](https://github.com/minghsuy/home-air-quality/actions/workflows/deploy.yml/badge.svg)](https://github.com/minghsuy/home-air-quality/actions/workflows/deploy.yml)
+[![Check links](https://github.com/minghsuy/home-air-quality/actions/workflows/links.yml/badge.svg)](https://github.com/minghsuy/home-air-quality/actions/workflows/links.yml)
+
 A practical, evidence-based guide to understanding and improving the air in your home — written for people who live with **asthma and allergies**.
 
 📖 **Read it: https://minghsuy.github.io/home-air-quality/**

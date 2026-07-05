@@ -1,0 +1,24 @@
+# Checks that every link in the guide still resolves — INCLUDING external ones
+# (WHO, EPA, etc.). Kept separate from deploy.yml on purpose: a third-party site
+# being briefly down should surface as a warning, never block your site from
+# updating. GitHub emails you when a scheduled workflow fails.
+name: Check links
+
+on:
+  schedule:
+    - cron: "0 14 * * 1"    # every Monday at 14:00 UTC (cron: min hour dom mon dow)
+  workflow_dispatch:        # + run it on demand from the Actions tab
+
+permissions:
+  contents: read
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check all Markdown links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: "--no-progress --max-retries 2 'docs/**/*.md' 'README.md'"
+          fail: true         # mark the run red (and email you) if a link is dead
