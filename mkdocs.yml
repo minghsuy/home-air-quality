@@ -1,0 +1,37 @@
+# MkDocs configuration — turns the Markdown in docs/ into the published site.
+site_name: Home Air Quality Guide
+site_description: A practical, evidence-based guide to improving home air quality for people with asthma & allergies.
+site_url: https://minghsuy.github.io/home-air-quality/
+repo_url: https://github.com/minghsuy/home-air-quality
+repo_name: minghsuy/home-air-quality
+
+theme:
+  name: material           # Material for MkDocs: search, nav, dark mode, mobile-friendly
+  palette:
+    - scheme: default      # light theme
+      primary: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate        # dark theme
+      primary: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.top       # "back to top" button
+    - navigation.sections
+    - content.code.copy    # copy button on code blocks
+    - search.highlight
+
+markdown_extensions:
+  - admonition             # callout/note boxes
+  - pymdownx.details
+  - tables
+  - toc:
+      permalink: true      # clickable anchors on headings
+
+nav:
+  - Home: index.md
+  - Filter efficiency (deep dive): filter-efficiency.md
+  - Wildfire smoke playbook: wildfire-smoke.md

@@ -1,0 +1,55 @@
+# Builds the MkDocs site and publishes it to GitHub Pages.
+name: Deploy guide to GitHub Pages
+
+# WHEN this runs:
+on:
+  push:
+    branches: [main]        # every push to main auto-publishes
+  workflow_dispatch:        # + a manual "Run workflow" button in the Actions tab
+
+# WHAT it's allowed to do (least privilege — only what Pages needs):
+permissions:
+  contents: read            # read the repository
+  pages: write              # publish to GitHub Pages
+  id-token: write           # prove identity to the deploy step (OIDC), no secrets
+
+# Don't run two Pages deploys at once; let an in-progress one finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # Job 1: turn the Markdown into a static site
+  build:
+    runs-on: ubuntu-latest            # a fresh Ubuntu VM, provided by GitHub
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4      # pulls your code into the VM
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install MkDocs Material
+        run: pip install "mkdocs-material>=9,<10"
+
+      - name: Build the site (fail the run on any broken link)
+        run: mkdocs build --strict     # renders docs/ into ./site
+
+      - name: Package ./site as a Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  # Job 2: publish that artifact to Pages (only if the build succeeded)
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

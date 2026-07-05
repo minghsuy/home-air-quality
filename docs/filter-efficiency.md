@@ -1,6 +1,6 @@
 # Deep dive: HVAC filter efficiency (do it right)
 
-This page expands on the core insight from the main [README](../README.md): **judge an HVAC filter by how well it removes particles, not by how old it is** — and only measure it when outdoor air is dirty enough to give you signal.
+This page expands on the core insight from the main [the guide](index.md): **judge an HVAC filter by how well it removes particles, not by how old it is** — and only measure it when outdoor air is dirty enough to give you signal.
 
 > **Not medical or professional HVAC advice.** Changing filters or altering airflow can affect your equipment. If in doubt, ask a licensed HVAC technician what your specific system can handle.
 
