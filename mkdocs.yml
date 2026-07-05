@@ -33,5 +33,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - What a year of data taught me: what-a-year-of-data-taught-me.md
+  - Monitoring & alerts (calibration): monitoring-and-alerts.md
   - Filter efficiency (deep dive): filter-efficiency.md
   - Wildfire smoke playbook: wildfire-smoke.md

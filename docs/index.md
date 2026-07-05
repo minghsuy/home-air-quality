@@ -103,7 +103,7 @@ You need, at minimum:
 - **An outdoor PM2.5 reference.** Either a small outdoor sensor or a nearby public air-quality station. You *need* the outdoor number to interpret the indoor one.
 - **A radon test**, at least once, ideally a long-term measurement (radon swings day to day and season to season).
 
-Then **log the readings over time.** A single snapshot tells you almost nothing; a week of data tells you when your CO₂ peaks, whether cooking spikes PM2.5, and whether your filter is keeping up. A spreadsheet is fine to start. A small time-series database is nicer if you want dashboards, but don't let tooling ambition stop you — even hourly manual notes reveal patterns.
+Then **log the readings over time.** A single snapshot tells you almost nothing; a week of data tells you when your CO₂ peaks, whether cooking spikes PM2.5, and whether your filter is keeping up. A spreadsheet is fine to start. A small time-series database is nicer if you want dashboards, but don't let tooling ambition stop you — even hourly manual notes reveal patterns. Once you're logging continuously, [monitoring-and-alerts.md](monitoring-and-alerts.md) covers how to turn that stream into a few trustworthy alerts instead of noise.
 
 ### Step 2 — Interpret
 
@@ -232,7 +232,7 @@ This guide names **categories, not brands** — the market changes fast and the 
 - **Radon monitors:** consumer continuous radon monitors give you a running readout and trends; a professional or lab test kit gives you an official measurement. Radon fluctuates a lot, so **longer measurement windows are more meaningful.**
 - **Outdoor data:** either a dedicated outdoor sensor at your home or a **nearby public AQI monitoring station.** You need this reference to interpret indoor numbers and to make the ventilate-vs-seal-up call.
 
-**Whatever you pick, log it over time.** A spreadsheet, a home-automation dashboard, or a small database — the tool matters far less than actually capturing the history. Trends are where the insight lives: the cooking spike you never noticed, the bedroom CO₂ that climbs every night, the filter efficiency that's quietly slipping. A snapshot lies; a time series tells the truth.
+**Whatever you pick, log it over time.** A spreadsheet, a home-automation dashboard, or a small database — the tool matters far less than actually capturing the history. Trends are where the insight lives: the cooking spike you never noticed, the bedroom CO₂ that climbs every night, the filter efficiency that's quietly slipping. A snapshot lies; a time series tells the truth. For the patterns worth hunting in your own history — overnight CO₂, indoor-vs-outdoor coupling, the ERV trade-off with numbers — see [what-a-year-of-data-taught-me.md](what-a-year-of-data-taught-me.md).
 
 ---
 
@@ -287,6 +287,15 @@ Breathe easier.
 ---
 
 ## Further reading & standards referenced
+
+### Companion pages in this guide
+
+- [what-a-year-of-data-taught-me.md](what-a-year-of-data-taught-me.md) — real patterns from months of continuous logging, framed as things to look for in your own data.
+- [monitoring-and-alerts.md](monitoring-and-alerts.md) — how to build and calibrate alerts that stay few and trustworthy.
+- [filter-efficiency.md](filter-efficiency.md) — the efficiency method in depth, with the clean-air caveat and MERV/airflow trade-off.
+- [wildfire-smoke.md](wildfire-smoke.md) — the seal-up / clean-room playbook for smoke and high-AQI days.
+
+### Standards
 
 - **WHO Global Air Quality Guidelines** — PM2.5 24-hour (15 µg/m³) and annual (5 µg/m³) guideline levels; radon reference level (100 Bq/m³).
 - **US EPA** — radon action level (148 Bq/m³ / 4 pCi/L); Air Quality Index (AQI); guidance on wildfire smoke and creating a clean room; MERV 13 recommendations for smoke.
