@@ -23,6 +23,7 @@ jobs:
   # build (or an internal link, via --strict) fails its checks before you merge.
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -39,6 +40,7 @@ jobs:
     needs: build
     if: github.event_name != 'pull_request'   # the conditional that skips PR deploys
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
